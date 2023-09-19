@@ -4,7 +4,6 @@ session_start();
 
 if (isset($_SESSION['rollno']) && isset($_SESSION['username'])) {
 
-    $_SESSION['gender'] = 'female';
 
 ?>
 <!DOCTYPE html>
