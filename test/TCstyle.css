@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.termsPage{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeLineBox {
+    position: absolute;
+    width: 350px;
+    height: 70px;
+    background: #d4d4d4;
+    top: 20px;
+    border-radius: 5px;
+}
+
+.indicationBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dot{
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+}
+
+.dot.active{
+    box-shadow: 0px 0px 10px #044e04;
+}
+
+.dot.active::before{
+  content: '';
+  position: absolute;
+  background: #61a171;
+  width:  70%;
+  height: 70%;
+  border-radius: 50%;
+  margin: 15% 16%;
+  box-shadow: 0px 0px 10px #161616;
+}
+
+.line{
+    width: 100px;
+    height: 2px;
+    background: #fff;
+}
+
+.line.active{
+    background: #044e04;
+}
+
+.module{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.termsBox {
+    min-width: 400px;
+    max-width: 80%;
+    min-height: 250px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    border-radius: 5px;
+}
+
+.termsContainer{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.list{
+    margin: 20px;
+    list-style: none;
+}
+
+.discp{
+    padding: 10px;
+}
+
+.tcnext{
+    padding: 7px 20px;
+    background: #0b4af7;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
