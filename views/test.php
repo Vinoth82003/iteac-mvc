@@ -1,97 +1,11 @@
 <?php
+
 session_start();
-// include '../conn.php';
 
-$username = $_SESSION['user_name'];
-// $rollno = $_SESSION['rollno'];
-
-
-function checkDone($conn,$rollno){
-
-    $RegisterQuery = "SELECT `accept` FROM `register` WHERE `rollno` = '$rollno' ";
-    $result = mysqli_query($conn, $RegisterQuery);
-  
-    if ($result && mysqli_num_rows($result) > 0) {
-      $row = mysqli_fetch_assoc($result);
-  
-      $_SESSION['accept'] = $row['accept'];
-  
-    }else {
-      $_SESSION['accept'] = 'not done';
-    }
-
-
-    $apptituteQuery = "SELECT * FROM `apptitute` WHERE `rollno` = '$rollno' ";
-    $result = mysqli_query($conn, $apptituteQuery);
-  
-    if ($result && mysqli_num_rows($result) > 0) {
-      $row = mysqli_fetch_assoc($result);
-  
-      $_SESSION['apptitute'] = $row['finished'];
-
-      $_SESSION['apptitute_percentage'] = $row['percentage'] .'%';
-      $_SESSION['apptitute_score'] = $row['score'];
-  
-    }else {
-      $_SESSION['apptitute'] = 'not done';
-
-      $_SESSION['apptitute_percentage'] = 'Not Attempted';
-      $_SESSION['apptitute_score'] = 'Not Attempted';
-    }
-  
-    
-    $quizQuery = "SELECT * FROM `quiz` WHERE `rollno` = '$rollno' ";
-    $result = mysqli_query($conn, $quizQuery);
-  
-    if ($result && mysqli_num_rows($result) > 0) {
-      $row = mysqli_fetch_assoc($result);
-  
-      $_SESSION['quiz'] = $row['finished'];
-      $_SESSION['quiz_percentage'] = $row['percentage'].'%';
-      $_SESSION['quiz_score'] = $row['score'];
-  
-    }else {
-      $_SESSION['quiz'] = 'not done';
-      $_SESSION['quiz_percentage'] = 'Not Attempted' ;
-      $_SESSION['quiz_score'] =  'Not Attempted'; 
-    }
-  
-    
-    $reasoningQuery = "SELECT * FROM `reasoning` WHERE `rollno` = '$rollno' ";
-    $result = mysqli_query($conn, $reasoningQuery);
-  
-    if ($result && mysqli_num_rows($result) > 0) {
-      $row = mysqli_fetch_assoc($result);
-  
-      $_SESSION['reasoning'] = $row['finished'];
-      $_SESSION['reasoning_percentage'] = $row['percentage'].'%';
-      $_SESSION['reasoning_score'] = $row['score'];
-  
-    }else {
-      $_SESSION['reasoning'] = 'not done';
-      $_SESSION['reasoning_percentage'] = 'Not Attempted' ;
-      $_SESSION['reasoning_score'] = 'Not Attempted' ;
-    }
-  
-  
-}
-
-checkDone($conn,$_SESSION['rollno']);
-
-
-
-if (isset($_SESSION['user_id']) && isset($_SESSION['rollno'])) {    
-
-?>
-
-<?php
-
-
-if (isset($_SESSION['accept']) && $_SESSION['accept'] == 'done') {
+if (isset($_SESSION['rollno']) && isset($_SESSION['username'])) {
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -288,9 +202,7 @@ if (isset($_SESSION['accept']) && $_SESSION['accept'] == 'done') {
 </body>
 </html>
 
-<?php }
-
-}else
+<?php }else
 
 header("location:../index.php");
 
